@@ -3,278 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patinhas Felizes | Adoção de Animais</title>
-    
-    <!-- CSS embutido direto no arquivo HTML -->
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #f7f9fc;
-            color: #333;
-        }
-
-        /* Banner / Topo */
-        header {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Títulos de Seção */
-        .titulo-secao {
-            text-align: center;
-            color: #d9534f;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        /* Grid da Galeria */
-        .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
-        }
-
-        /* Cartões dos Animais */
-        .card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            width: 320px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            border: 2px solid #ffe3d8;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-conteudo {
-            padding: 20px;
-        }
-
-        .card h3 {
-            color: #ff7e5f;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .badge {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        .card ul {
-            list-style: none;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        /* Formulário de Adoção */
-        .secao-form {
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-            margin-top: 50px;
-            border-top: 6px solid #ff7e5f;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #444;
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: #fafafa;
-        }
-
-        .btn-enviar {
-            background-color: #ff7e5f;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease;
-        }
-
-        .btn-enviar:hover {
-            background-color: #eb6b4c;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-        }
-    </style>
+    <title>Adote um Amigo - Abrigo de Animais</title>
 </head>
 <body>
 
-    <!-- Topo -->
+    <!-- Cabeçalho Principal -->
     <header>
-        <h1>🐾 Abrigo Patinhas Felizes</h1>
-        <p>Encontre o seu novo melhor amigo e transforme uma vida hoje mesmo!</p>
+        <center>
+            <h1>🐾 Adote um Amigo 🐾</h1>
+            <p><i>Encontre o seu novo melhor amigo e mude uma vida hoje mesmo!</i></p>
+        </center>
     </header>
 
-    <div class="container">
-        
-        <!-- Galeria de Pets -->
-        <main>
-            <h2 class="titulo-secao">Amigos Esperando por um Lar</h2>
-            
-            <div class="galeria">
-                
-                <!-- Cartão 1 -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500" alt="Foto do cachorro Rex">
-                    <div class="card-conteudo">
-                        <h3>Rex <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐶 <strong>Espécie:</strong> Cachorro</li>
-                            <li>🎂 <strong>Idade:</strong> 2 anos</li>
-                            <li>📏 <strong>Porte:</strong> Médio</li>
-                            <li>💛 <strong>Perfil:</strong> Muito brincalhão e amoroso.</li>
+    <hr size="3" color="#2e7d32" width="90%">
+
+    <!-- Apresentação dos Animais -->
+    <main>
+        <section>
+            <center>
+                <h2>Animais para Adoção</h2>
+            </center>
+
+            <!-- Tabela para alinhar os cartões lado a lado -->
+            <table border="1" cellpadding="15" cellspacing="10" align="center" width="90%">
+                <tr valign="top">
+                    
+                    <!-- Cartão 1: Rex -->
+                    <td align="center" width="33%">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400" alt="Foto do cachorro Rex" width="220" height="160">
+                        <h3>Rex</h3>
+                        <hr width="80%">
+                        <ul align="left">
+                            <li><b>Espécie:</b> Cachorro</li>
+                            <li><b>Idade:</b> 2 anos</li>
+                            <li><b>Porte:</b> Médio</li>
+                            <li><b>Perfil:</b> Dócil, brincalhão e adora correr no parque.</li>
                         </ul>
-                    </div>
-                </article>
+                    </td>
 
-                <!-- Cartão 2 -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500" alt="Foto da gata Mia">
-                    <div class="card-conteudo">
-                        <h3>Mia <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐱 <strong>Espécie:</strong> Gata</li>
-                            <li>🎂 <strong>Idade:</strong> 1 ano</li>
-                            <li>📏 <strong>Porte:</strong> Pequeno</li>
-                            <li>💛 <strong>Perfil:</strong> Calma, dengosa e ama colo.</li>
+                    <!-- Cartão 2: Mia -->
+                    <td align="center" width="33%">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400" alt="Foto da gata Mia" width="220" height="160">
+                        <h3>Mia</h3>
+                        <hr width="80%">
+                        <ul align="left">
+                            <li><b>Espécie:</b> Gato</li>
+                            <li><b>Idade:</b> 1 ano</li>
+                            <li><b>Porte:</b> Pequeno</li>
+                            <li><b>Perfil:</b> Calma, carinhosa e ama um colo no fim da tarde.</li>
                         </ul>
-                    </div>
-                </article>
+                    </td>
 
-                <!-- Cartão 3 -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500" alt="Foto do cachorro Thor">
-                    <div class="card-conteudo">
-                        <h3>Thor <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐶 <strong>Espécie:</strong> Cachorro</li>
-                            <li>🎂 <strong>Idade:</strong> 4 anos</li>
-                            <li>📏 <strong>Porte:</strong> Grande</li>
-                            <li>💛 <strong>Perfil:</strong> Obadiante, protetor e calmo.</li>
+                    <!-- Cartão 3: Thor -->
+                    <td align="center" width="33%">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400" alt="Foto do cachorro Thor" width="220" height="160">
+                        <h3>Thor</h3>
+                        <hr width="80%">
+                        <ul align="left">
+                            <li><b>Espécie:</b> Cachorro</li>
+                            <li><b>Idade:</b> 4 anos</li>
+                            <li><b>Porte:</b> Grande</li>
+                            <li><b>Perfil:</b> Protetor, companheiro e muito obediente.</li>
                         </ul>
-                    </div>
-                </article>
+                    </td>
 
-            </div>
-        </main>
-
-        <!-- Formulário -->
-        <section class="secao-form">
-            <h2 class="titulo-secao" style="margin-bottom: 10px;">Formulário de Interesse</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">Preencha para agendar uma visita ao abrigo:</p>
-
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="nome">Seu Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail de Contato:</label>
-                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefone">Telefone / WhatsApp:</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="animal">Quem você deseja adotar?</label>
-                    <select id="animal" name="animal" required>
-                        <option value="">Selecione um bichinho...</option>
-                        <option value="rex">Rex (Cachorro)</option>
-                        <option value="mia">Mia (Gata)</option>
-                        <option value="thor">Thor (Cachorro)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="mensagem">Conte um pouco sobre sua casa/rotina:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Possui quintal? Tem outros animais?"></textarea>
-                </div>
-
-                <button type="submit" class="btn-enviar">Quero Adotar! ❤️</button>
-            </form>
+                </tr>
+            </table>
         </section>
 
-    </div>
+        <br><br>
+        <hr size="1" width="90%">
+        <br>
+
+        <!-- Formulário de Adoção -->
+        <section>
+            <table align="center" width="60%">
+                <tr>
+                    <td>
+                        <form action="#" method="POST">
+                            <fieldset>
+                                <legend><b>📋 Formulário de Interesse em Adoção</b></legend>
+                                <p><small>Preencha os dados abaixo para iniciar o processo de adoção:</small></p>
+
+                                <p>
+                                    <label for="nome"><b>Seu Nome Completo:</b></label><br>
+                                    <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" size="40" required>
+                                </p>
+
+                                <p>
+                                    <label for="email"><b>E-mail de Contato:</b></label><br>
+                                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" size="40" required>
+                                </p>
+
+                                <p>
+                                    <label for="telefone"><b>Telefone / WhatsApp:</b></label><br>
+                                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" size="25" required>
+                                </p>
+
+                                <p>
+                                    <label for="animal"><b>Qual animal você deseja adotar?</b></label><br>
+                                    <select id="animal" name="animal" required>
+                                        <option value="">-- Selecione um animal --</option>
+                                        <option value="rex">Rex (Cachorro)</option>
+                                        <option value="mia">Mia (Gato)</option>
+                                        <option value="thor">Thor (Cachorro)</option>
+                                        <option value="outro">Outro animal do abrigo</option>
+                                    </select>
+                                </p>
+
+                                <p>
+                                    <label for="mensagem"><b>Por que você quer adotar este animal?</b></label><br>
+                                    <textarea id="mensagem" name="mensagem" rows="4" cols="45" placeholder="Conte um pouco sobre sua rotina e sua casa..."></textarea>
+                                </p>
+
+                                <center>
+                                    <button type="submit"><b>Enviar Pedido de Adoção</b></button>
+                                </center>
+                            </fieldset>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <br><br>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2026 Patinhas Felizes - Projeto de Conscientização e Adoção Animal.</p>
+        <hr size="1" width="100%">
+        <center>
+            <p><small>&copy; 2026 Adote um Amigo - Projeto de conscientização animal.</small></p>
+        </center>
     </footer>
 
 </body>
