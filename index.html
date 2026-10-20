@@ -3,324 +3,599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patinhas Felizes | Adoção de Animais</title>
+    <title>Maré Rosa | Moda Praia & Biquínis Exclusivos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS embutido direto no arquivo HTML -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mare-pink': {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            300: '#fda4af',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            800: '#9f1239'
+                        },
+                        'sand': '#FAF6F0',
+                        'sea-blue': '#E0F2FE'
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+        .product-card:hover .product-img {
+            transform: scale(1.05);
         }
-
-        body {
-            background-color: #f7f9fc;
-            color: #333;
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
         }
-
-        /* Banner / Topo */
-        header {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Títulos de Seção */
-        .titulo-secao {
-            text-align: center;
-            color: #d9534f;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        /* Grid da Galeria */
-        .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
-        }
-
-        /* Cartões dos Animais */
-        .card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            width: 320px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            border: 2px solid #ffe3d8;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-conteudo {
-            padding: 20px;
-        }
-
-        .card h3 {
-            color: #ff7e5f;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .badge {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        .card ul {
-            list-style: none;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        /* Formulário de Adoção */
-        .secao-form {
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-            margin-top: 50px;
-            border-top: 6px solid #ff7e5f;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #444;
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: #fafafa;
-        }
-
-        .btn-enviar {
-            background-color: #ff7e5f;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease;
-        }
-
-        .btn-enviar:hover {
-            background-color: #eb6b4c;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 10px;
         }
     </style>
 </head>
-<body>
+<body class="bg-sand font-sans text-gray-800 antialiased leading-relaxed flex flex-col min-h-screen">
 
-    <!-- Topo -->
-    <header>
-        <h1>🐾 Abrigo Patinhas Felizes</h1>
-        <p>Encontre o seu novo melhor amigo e transforme uma vida hoje mesmo!</p>
-    </header>
-
-    <div class="container">
-        
-        <!-- Galeria de Pets -->
-        <main>
-            <h2 class="titulo-secao">Amigos Esperando por um Lar</h2>
-            
-            <div class="galeria">
-                
-                <!-- Cartão 1 -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500" alt="Foto do cachorro Rex">
-                    <div class="card-conteudo">
-                        <h3>Rex <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐶 <strong>Espécie:</strong> Cachorro</li>
-                            <li>🎂 <strong>Idade:</strong> 2 anos</li>
-                            <li>📏 <strong>Porte:</strong> Médio</li>
-                            <li>💛 <strong>Perfil:</strong> Muito brincalhão e amoroso.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <!-- Cartão 2 -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500" alt="Foto da gata Mia">
-                    <div class="card-conteudo">
-                        <h3>Mia <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐱 <strong>Espécie:</strong> Gata</li>
-                            <li>🎂 <strong>Idade:</strong> 1 ano</li>
-                            <li>📏 <strong>Porte:</strong> Pequeno</li>
-                            <li>💛 <strong>Perfil:</strong> Calma, dengosa e ama colo.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <!-- Cartão 3 -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500" alt="Foto do cachorro Thor">
-                    <div class="card-conteudo">
-                        <h3>Thor <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐶 <strong>Espécie:</strong> Cachorro</li>
-                            <li>🎂 <strong>Idade:</strong> 4 anos</li>
-                            <li>📏 <strong>Porte:</strong> Grande</li>
-                            <li>💛 <strong>Perfil:</strong> Obediente, protetor e calmo.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <!-- Cartão 4 (Novo) -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500" alt="Foto do gato Luna">
-                    <div class="card-conteudo">
-                        <h3>Luna <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐱 <strong>Espécie:</strong> Gata</li>
-                            <li>🎂 <strong>Idade:</strong> 6 meses</li>
-                            <li>📏 <strong>Porte:</strong> Pequeno</li>
-                            <li>💛 <strong>Perfil:</strong> Curiosa, ativa e adora bolinhas de lã.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <!-- Cartão 5 (Novo) -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=500" alt="Foto do cachorro Pipoca">
-                    <div class="card-conteudo">
-                        <h3>Pipoca <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐶 <strong>Espécie:</strong> Cachorro</li>
-                            <li>🎂 <strong>Idade:</strong> 3 anos</li>
-                            <li>📏 <strong>Porte:</strong> Pequeno</li>
-                            <li>💛 <strong>Perfil:</strong> Sociável, se dá bem com crianças e outros pets.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <!-- Cartão 6 (Novo) -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=500" alt="Foto do gato Bob">
-                    <div class="card-conteudo">
-                        <h3>Bob <span class="badge">Disponível</span></h3>
-                        <ul>
-                            <li>🐱 <strong>Espécie:</strong> Gato</li>
-                            <li>🎂 <strong>Idade:</strong> 2 anos</li>
-                            <li>📏 <strong>Porte:</strong> Médio</li>
-                            <li>💛 <strong>Perfil:</strong> Silencioso, independente e muito carinhoso.</li>
-                        </ul>
-                    </div>
-                </article>
-
-            </div>
-        </main>
-
-        <!-- Formulário -->
-        <section class="secao-form">
-            <h2 class="titulo-secao" style="margin-bottom: 10px;">Formulário de Interesse</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">Preencha para agendar uma visita ao abrigo:</p>
-
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="nome">Seu Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail de Contato:</label>
-                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefone">Telefone / WhatsApp:</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="animal">Quem você deseja adotar?</label>
-                    <select id="animal" name="animal" required>
-                        <option value="">Selecione um bichinho...</option>
-                        <option value="rex">Rex (Cachorro)</option>
-                        <option value="mia">Mia (Gata)</option>
-                        <option value="thor">Thor (Cachorro)</option>
-                        <option value="luna">Luna (Gata)</option>
-                        <option value="pipoca">Pipoca (Cachorro)</option>
-                        <option value="bob">Bob (Gato)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="mensagem">Conte um pouco sobre sua casa/rotina:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Possui quintal? Tem outros animais?"></textarea>
-                </div>
-
-                <button type="submit" class="btn-enviar">Quero Adotar! ❤️</button>
-            </form>
-        </section>
-
+    <!-- Top Bar -->
+    <div class="bg-mare-pink-600 text-white text-xs text-center py-2 px-4 font-medium tracking-wide">
+        ✨ PARCELE EM ATÉ 6X SEM JUROS | FRETE GRÁTIS PARA COMPRAS ACIMA DE R$ 299 ✨
     </div>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2026 Patinhas Felizes - Projeto de Conscientização e Adoção Animal.</p>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-rose-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 hover:text-mare-pink-600 focus:outline-none p-2" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <span class="text-3xl text-mare-pink-600"><i class="fa-solid fa-water"></i></span>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 group-hover:text-mare-pink-600 transition-colors">Maré Rosa</span>
+                </a>
+
+                <!-- Nav Links Desktop -->
+                <nav class="hidden lg:flex space-x-8 text-sm font-medium tracking-wide">
+                    <button onclick="filterCategory('todos')" class="nav-btn text-mare-pink-600 font-semibold border-b-2 border-mare-pink-600 pb-1 hover:text-mare-pink-600 transition-colors" data-category="todos">TODOS</button>
+                    <button onclick="filterCategory('cortininha')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="cortininha">CORTININHA</button>
+                    <button onclick="filterCategory('maios')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="maios">MAIÔS</button>
+                    <button onclick="filterCategory('saidas')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="saidas">SAÍDAS DE PRAIA</button>
+                    <button onclick="filterCategory('acessorios')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="acessorios">ACESSÓRIOS</button>
+                </nav>
+
+                <!-- Action Icons -->
+                <div class="flex items-center space-x-5">
+                    <button class="text-gray-700 hover:text-mare-pink-600 transition-colors p-1" title="Buscar" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+                    <button id="wishlist-btn" class="text-gray-700 hover:text-mare-pink-600 transition-colors p-1 relative" title="Favoritos" aria-label="Favoritos">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlist-count" class="absolute -top-2 -right-2 bg-mare-pink-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    </button>
+                    <button id="cart-btn" class="text-gray-700 hover:text-mare-pink-600 transition-colors p-1 relative" title="Carrinho" aria-label="Carrinho">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-mare-pink-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-rose-100 px-4 pt-2 pb-6 space-y-3">
+            <button onclick="filterCategory('todos'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Todos os Produtos</button>
+            <button onclick="filterCategory('cortininha'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Biquínis Cortininha</button>
+            <button onclick="filterCategory('maios'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Maiôs Elegantes</button>
+            <button onclick="filterCategory('saidas'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Saídas de Praia</button>
+            <button onclick="filterCategory('acessorios'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Acessórios</button>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative bg-rose-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-12 md:py-20 gap-8">
+            <div class="md:w-1/2 space-y-6 text-center md:text-left">
+                <span class="inline-block uppercase tracking-widest text-xs font-bold text-mare-pink-600 bg-rose-100 px-3 py-1 rounded-full">
+                    Coleção Verão 2027
+                </span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-tight">
+                    Sinta a brisa do mar com estilo e leveza.
+                </h1>
+                <p class="text-gray-600 text-base sm:text-lg max-w-lg mx-auto md:mx-0">
+                    Biquínis e moda praia pensados para realçar sua beleza natural com tecidos tecnológicos, proteção UV50+ e caimento perfeito.
+                </p>
+                <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#produtos" class="bg-mare-pink-600 hover:bg-mare-pink-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                        Ver Lançamentos
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative w-full flex justify-center">
+                <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] lg:w-96 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Coleção Maré Rosa Moda Praia" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <p class="font-serif text-xl">Sunsessions '27</p>
+                        <p class="text-xs text-rose-200">Encontre seu modelo ideal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content / Products Section -->
+    <main id="produtos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        
+        <!-- Category Title & Description -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 id="category-title" class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                Coleção Completa
+            </h2>
+            <p id="category-desc" class="text-gray-500 text-sm sm:text-base">
+                Explore nossas peças exclusivas desenhadas para o verão dos seus sonhos.
+            </p>
+            <div class="w-16 h-1 bg-mare-pink-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Filter Tabs Mobile/Quick -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10 text-xs sm:text-sm font-medium">
+            <button onclick="filterCategory('todos')" class="filter-tab-btn bg-mare-pink-600 text-white px-4 py-2 rounded-full shadow-sm" data-category="todos">Todos</button>
+            <button onclick="filterCategory('cortininha')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="cortininha">Cortininha</button>
+            <button onclick="filterCategory('maios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="maios">Maiôs</button>
+            <button onclick="filterCategory('saidas')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="saidas">Saídas de Praia</button>
+            <button onclick="filterCategory('acessorios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="acessorios">Acessórios</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Os produtos serão injetados via JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-rose-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-2">
+                        <span class="text-2xl text-mare-pink-600"><i class="fa-solid fa-water"></i></span>
+                        <span class="font-serif text-2xl font-bold text-gray-900">Maré Rosa</span>
+                    </a>
+                    <p class="text-gray-500 text-sm">
+                        Moda praia brasileira autêntica, unindo conforto, elegância e alta qualidade para seus momentos ao sol.
+                    </p>
+                    <div class="flex space-x-4 text-gray-500 pt-2">
+                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Categorias</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-600">
+                        <li><a href="#" onclick="filterCategory('cortininha')" class="hover:text-mare-pink-600">Biquínis Cortininha</a></li>
+                        <li><a href="#" onclick="filterCategory('maios')" class="hover:text-mare-pink-600">Maiôs Exclusivos</a></li>
+                        <li><a href="#" onclick="filterCategory('saidas')" class="hover:text-mare-pink-600">Saídas de Praia</a></li>
+                        <li><a href="#" onclick="filterCategory('acessorios')" class="hover:text-mare-pink-600">Acessórios de Verão</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Atendimento</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-mare-pink-600">Fale Conosco</a></li>
+                        <li><a href="#" class="hover:text-mare-pink-600">Política de Trocas</a></li>
+                        <li><a href="#" class="hover:text-mare-pink-600">Guia de Tamanhos</a></li>
+                        <li><a href="#" class="hover:text-mare-pink-600">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Novidades</h3>
+                    <p class="text-sm text-gray-500 mb-3">Receba nossas ofertas e novidades de verão em primeira mão.</p>
+                    <form onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');" class="flex flex-col gap-2">
+                        <input type="email" placeholder="Seu e-mail aqui" required class="px-4 py-2.5 bg-sand border border-rose-200 rounded-lg text-sm focus:outline-none focus:border-mare-pink-500">
+                        <button type="submit" class="bg-mare-pink-600 hover:bg-mare-pink-800 text-white font-medium py-2.5 rounded-lg text-sm transition-colors">
+                            Inscrever-se
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="border-t border-rose-100 pt-6 text-center text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2027 Maré Rosa. Todos os direitos reservados.</p>
+                <div class="flex items-center space-x-4 text-xl">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-solid fa-pix" title="Pix"></i>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Cart Drawer (Side Modal) -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto" onclick="closeCart()"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                
+                <!-- Drawer Header -->
+                <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+                    <h2 class="text-lg font-serif font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-mare-pink-600"></i> Seu Carrinho
+                    </h2>
+                    <button onclick="closeCart()" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Fechar carrinho">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Items List -->
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                    <p class="text-gray-400 text-center py-8">Seu carrinho está vazio.</p>
+                </div>
+
+                <!-- Drawer Footer -->
+                <div class="p-6 border-t border-gray-100 bg-sand/50 space-y-4">
+                    <div class="flex justify-between text-base font-semibold text-gray-900">
+                        <span>Total</span>
+                        <span id="cart-total">R$ 0,00</span>
+                    </div>
+                    <button onclick="alert('Redirecionando para o checkout seguro!')" class="w-full bg-mare-pink-600 hover:bg-mare-pink-800 text-white font-medium py-3 rounded-xl shadow-md transition-all text-center">
+                        Finalizar Compra
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-gray-900 text-white px-5 py-3 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-green-400"></i>
+        <span id="toast-msg">Item adicionado com sucesso!</span>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Banco de Dados de Produtos com Imagens Correspondentes por Categoria
+        const products = [
+            // CORTININHA
+            {
+                id: 1,
+                name: 'Biquíni Cortininha Rosa Coral',
+                category: 'cortininha',
+                price: 189.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1576185850227-1f72b7f8d483?auto=format&fit=crop&q=80&w=600',
+                badge: 'Mais Vendido'
+            },
+            {
+                id: 2,
+                name: 'Biquíni Cortininha Estampa Tropical',
+                category: 'cortininha',
+                price: 199.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=600',
+                badge: 'Novo'
+            },
+            {
+                id: 3,
+                name: 'Biquíni Cortininha Texturizado Nude',
+                category: 'cortininha',
+                price: 179.90,
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1582639510494-c80b5de9f148?auto=format&fit=crop&q=80&w=600'
+            },
+
+            // MAIÔS
+            {
+                id: 4,
+                name: 'Maiô Elegance Decote V Preto',
+                category: 'maios',
+                price: 289.90,
+                rating: 5.0,
+                image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=600',
+                badge: 'Exclusivo'
+            },
+            {
+                id: 5,
+                name: 'Maiô Engana-Mamãe Vermelho Sol',
+                category: 'maios',
+                price: 269.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 6,
+                name: 'Maiô Ombro Sólido Azul Maré',
+                category: 'maios',
+                price: 299.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'
+            },
+
+            // SAÍDAS DE PRAIA
+            {
+                id: 7,
+                name: 'Saída de Praia Túnica de Linho',
+                category: 'saidas',
+                price: 229.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600',
+                badge: 'Tendência'
+            },
+            {
+                id: 8,
+                name: 'Canga Estampada Floral Maré Rosa',
+                category: 'saidas',
+                price: 129.90,
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 9,
+                name: 'Kimono Curto de Seda Verão',
+                category: 'saidas',
+                price: 249.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=600'
+            },
+
+            // ACESSÓRIOS
+            {
+                id: 10,
+                name: 'Chapéu de Palha Artesanal Maré',
+                category: 'acessorios',
+                price: 149.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 11,
+                name: 'Bolsa de Praia de Palha Natural',
+                category: 'acessorios',
+                price: 189.90,
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 12,
+                name: 'Óculos de Sol Retro Oval',
+                category: 'acessorios',
+                price: 139.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&q=80&w=600'
+            }
+        ];
+
+        let cart = [];
+        let wishlist = [];
+
+        const categoryTexts = {
+            todos: { title: "Coleção Completa", desc: "Explore nossas peças exclusivas desenhadas para o verão dos seus sonhos." },
+            cortininha: { title: "Biquínis Cortininha", desc: "Os clássicos atemporais da praia brasileira com amarrações versáteis." },
+            maios: { title: "Maiôs Elegantes", desc: "Modelos sofísticados com caimento perfeito, conforto e proteção." },
+            saidas: { title: "Saídas de Praia", desc: "Leveza, transparência e elegância para transitar da areia ao restaurante." },
+            acessorios: { title: "Acessórios de Verão", desc: "Chapéus de palha, bolsas artesanais e os detalhes que completam o look." }
+        };
+
+        // Renderizar Produtos
+        function renderProducts(category = 'todos') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = category === 'todos' 
+                ? products 
+                : products.filter(p => p.category === category);
+
+            filtered.forEach(product => {
+                const isWish = wishlist.includes(product.id);
+                const card = document.createElement('div');
+                card.className = 'product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-rose-100 flex flex-col justify-between group';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-[3/4] bg-rose-50">
+                        <img src="${product.image}" alt="${product.name}" class="product-img w-full h-full object-cover transition-transform duration-500">
+                        ${product.badge ? `<span class="absolute top-3 left-3 bg-mare-pink-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">${product.badge}</span>` : ''}
+                        
+                        <button onclick="toggleWishlist(${product.id})" class="absolute top-3 right-3 bg-white/80 backdrop-blur-md p-2 rounded-full text-gray-700 hover:text-mare-pink-600 transition-colors shadow-sm" aria-label="Favoritar">
+                            <i class="${isWish ? 'fa-solid text-mare-pink-600' : 'fa-regular'} fa-heart"></i>
+                        </button>
+
+                        <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
+                            <button onclick="addToCart(${product.id})" class="bg-white hover:bg-mare-pink-600 hover:text-white text-gray-900 font-medium text-xs py-2.5 px-4 rounded-full shadow-lg transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+                                <i class="fa-solid fa-star"></i>
+                                <span class="text-gray-600 font-medium ml-1">${product.rating}</span>
+                            </div>
+                            <h3 class="font-serif font-semibold text-gray-900 text-base group-hover:text-mare-pink-600 transition-colors">${product.name}</h3>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
+                            <button onclick="addToCart(${product.id})" class="text-mare-pink-600 hover:text-mare-pink-800 font-medium text-xs flex items-center gap-1">
+                                Comprar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtro por Categoria
+        function filterCategory(cat) {
+            // Atualiza Textos
+            document.getElementById('category-title').innerText = categoryTexts[cat].title;
+            document.getElementById('category-desc').innerText = categoryTexts[cat].desc;
+
+            // Atualiza botões
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.category === cat) {
+                    btn.classList.add('text-mare-pink-600', 'font-semibold', 'border-b-2', 'border-mare-pink-600');
+                    btn.classList.remove('text-gray-600');
+                } else {
+                    btn.classList.remove('text-mare-pink-600', 'font-semibold', 'border-b-2', 'border-mare-pink-600');
+                    btn.classList.add('text-gray-600');
+                }
+            });
+
+            document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+                if(btn.dataset.category === cat) {
+                    btn.className = 'filter-tab-btn bg-mare-pink-600 text-white px-4 py-2 rounded-full shadow-sm';
+                } else {
+                    btn.className = 'filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200';
+                }
+            });
+
+            renderProducts(cat);
+        }
+
+        // Adicionar ao Carrinho
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const item = cart.find(i => i.id === productId);
+
+            if(item) {
+                item.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" adicionado ao carrinho!`);
+        }
+
+        // Atualizar UI do Carrinho
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+            countEl.innerText = totalItems;
+            totalEl.innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+
+            if(cart.length === 0) {
+                itemsContainer.innerHTML = `<p class="text-gray-400 text-center py-8">Seu carrinho está vazio.</p>`;
+                return;
+            }
+
+            itemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'flex items-center gap-4 border-b border-gray-100 pb-4';
+                el.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-medium text-sm text-gray-900">${item.name}</h4>
+                        <p class="text-xs text-gray-500 mt-1">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 border rounded-full flex items-center justify-center text-xs text-gray-600 hover:bg-rose-50">-</button>
+                            <span class="text-xs font-semibold">${item.quantity}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 border rounded-full flex items-center justify-center text-xs text-gray-600 hover:bg-rose-50">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 p-1" aria-label="Remover">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                `;
+                itemsContainer.appendChild(el);
+            });
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(!item) return;
+            item.quantity += delta;
+            if(item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        // Favoritos
+        function toggleWishlist(productId) {
+            const idx = wishlist.indexOf(productId);
+            if(idx > -1) {
+                wishlist.splice(idx, 1);
+                showToast('Removido dos favoritos!');
+            } else {
+                wishlist.push(productId);
+                showToast('Adicionado aos favoritos!');
+            }
+            document.getElementById('wishlist-count').innerText = wishlist.length;
+            renderProducts();
+        }
+
+        // Toasts / Notificação
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Abrir/Fechar Carrinho
+        document.getElementById('cart-btn').addEventListener('click', () => {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.remove('pointer-events-none', 'opacity-0');
+        });
+
+        function closeCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.add('pointer-events-none', 'opacity-0');
+        }
+
+        // Menu Mobile Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Inicializar
+        renderProducts();
+    </script>
 </body>
 </html>
