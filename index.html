@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maré Rosa | Moda Praia & Biquínis Exclusivos</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Maré Rosa | Moda Praia</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -24,207 +25,403 @@
                             600: '#e11d48',
                             800: '#9f1239'
                         },
-                        'sand': '#FAF6F0',
-                        'sea-blue': '#E0F2FE'
+                        'sand': '#FAF6F0'
                     },
                     fontFamily: {
-                        'serif': ['"Playfair Display"', 'serif'],
-                        'sans': ['"Plus Jakarta Sans"', 'sans-serif']
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-sand font-sans text-gray-800 antialiased leading-relaxed flex flex-col min-h-screen">
 
-    <!-- Top Bar -->
-    <div class="bg-mare-pink-600 text-white text-xs text-center py-2 px-4 font-medium tracking-wide">
-        ✨ PARCELE EM ATÉ 6X SEM JUROS | FRETE GRÁTIS PARA COMPRAS ACIMA DE R$ 299 ✨
+<body class="bg-sand font-sans text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Faixa superior -->
+    <div class="bg-mare-pink-600 text-white text-xs text-center py-2 px-3">
+        ✨ PARCELE EM ATÉ 6X SEM JUROS | FRETE GRÁTIS ACIMA DE R$ 299 ✨
     </div>
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-rose-100 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Cabeçalho -->
+    <header class="sticky top-0 z-40 bg-white/95 border-b border-rose-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between h-20">
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-gray-700 hover:text-mare-pink-600 focus:outline-none p-2" aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars text-xl"></i>
+
+                <button onclick="toggleMobileMenu()"
+                    class="lg:hidden text-xl text-gray-700"
+                    aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
 
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2 group">
-                    <span class="text-3xl text-mare-pink-600"><i class="fa-solid fa-water"></i></span>
-                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 group-hover:text-mare-pink-600 transition-colors">Maré Rosa</span>
+                <a href="#" onclick="filterCategory('todos')"
+                    class="flex items-center gap-2">
+                    <i class="fa-solid fa-water text-3xl text-mare-pink-600"></i>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold">
+                        Maré Rosa
+                    </span>
                 </a>
 
-                <!-- Nav Links Desktop -->
-                <nav class="hidden lg:flex space-x-8 text-sm font-medium tracking-wide">
-                    <button onclick="filterCategory('todos')" class="nav-btn text-mare-pink-600 font-semibold border-b-2 border-mare-pink-600 pb-1 hover:text-mare-pink-600 transition-colors" data-category="todos">TODOS</button>
-                    <button onclick="filterCategory('cortininha')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="cortininha">CORTININHA</button>
-                    <button onclick="filterCategory('maios')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="maios">MAIÔS</button>
-                    <button onclick="filterCategory('saidas')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="saidas">SAÍDAS DE PRAIA</button>
-                    <button onclick="filterCategory('acessorios')" class="nav-btn text-gray-600 hover:text-mare-pink-600 transition-colors pb-1" data-category="acessorios">ACESSÓRIOS</button>
+                <nav class="hidden lg:flex gap-6 text-sm">
+                    <button class="nav-btn" data-category="todos"
+                        onclick="filterCategory('todos')">TODOS</button>
+                    <button class="nav-btn" data-category="cortininha"
+                        onclick="filterCategory('cortininha')">CORTININHA</button>
+                    <button class="nav-btn" data-category="maios"
+                        onclick="filterCategory('maios')">MAIÔS</button>
+                    <button class="nav-btn" data-category="saidas"
+                        onclick="filterCategory('saidas')">SAÍDAS DE PRAIA</button>
+                    <button class="nav-btn" data-category="acessorios"
+                        onclick="filterCategory('acessorios')">ACESSÓRIOS</button>
                 </nav>
 
-                <!-- Action Icons -->
-                <div class="flex items-center space-x-5">
-                    <button class="text-gray-700 hover:text-mare-pink-600 transition-colors p-1" title="Buscar" aria-label="Buscar">
-                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                <div class="flex gap-4 text-lg">
+                    <button aria-label="Favoritos">
+                        <i class="fa-regular fa-heart"></i>
                     </button>
-                    <button id="wishlist-btn" class="text-gray-700 hover:text-mare-pink-600 transition-colors p-1 relative" title="Favoritos" aria-label="Favoritos">
-                        <i class="fa-regular fa-heart text-lg"></i>
-                        <span id="wishlist-count" class="absolute -top-2 -right-2 bg-mare-pink-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
-                    </button>
-                    <button id="cart-btn" onclick="openCart()" class="text-gray-700 hover:text-mare-pink-600 transition-colors p-1 relative" title="Carrinho" aria-label="Carrinho">
-                        <i class="fa-solid fa-bag-shopping text-lg"></i>
-                        <span id="cart-count" class="absolute -top-2 -right-2 bg-mare-pink-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    <button aria-label="Carrinho"
+                        onclick="alert('Seu carrinho está vazio!')">
+                        <i class="fa-solid fa-bag-shopping"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-rose-100 px-4 pt-2 pb-6 space-y-3">
-            <button onclick="filterCategory('todos'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Todos os Produtos</button>
-            <button onclick="filterCategory('cortininha'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Biquínis Cortininha</button>
-            <button onclick="filterCategory('maios'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Maiôs Elegantes</button>
-            <button onclick="filterCategory('saidas'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Saídas de Praia</button>
-            <button onclick="filterCategory('acessorios'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-mare-pink-600">Acessórios</button>
+        <!-- Menu para celular -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white px-5 py-4 space-y-3">
+
+            <button class="block" onclick="filterCategory('todos'); toggleMobileMenu()">
+                Todos os produtos
+            </button>
+            <button class="block" onclick="filterCategory('cortininha'); toggleMobileMenu()">
+                Biquínis cortininha
+            </button>
+            <button class="block" onclick="filterCategory('maios'); toggleMobileMenu()">
+                Maiôs elegantes
+            </button>
+            <button class="block" onclick="filterCategory('saidas'); toggleMobileMenu()">
+                Saídas de praia
+            </button>
+            <button class="block" onclick="filterCategory('acessorios'); toggleMobileMenu()">
+                Acessórios
+            </button>
         </div>
     </header>
 
-    <!-- Main Content Section -->
-    <main id="produtos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
-        
-        <!-- Category Title & Description -->
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <h2 id="category-title" class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-                Coleção Completa
-            </h2>
-            <p id="category-desc" class="text-gray-500 text-sm sm:text-base">
-                Explore nossas peças exclusivas desenhadas para o verão dos seus sonhos.
+    <!-- Conteúdo principal -->
+    <main id="produtos"
+        class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-14 flex-grow">
+
+        <section class="text-center mb-10">
+            <p class="text-mare-pink-600 uppercase tracking-widest text-xs mb-3">
+                Sua melhor versão no verão
             </p>
-            <div class="w-16 h-1 bg-mare-pink-500 mx-auto mt-4 rounded-full"></div>
+
+            <h1 id="category-title"
+                class="font-serif text-4xl sm:text-5xl font-bold mb-4">
+                Coleção Completa
+            </h1>
+
+            <p id="category-desc" class="text-gray-500">
+                Explore nossas peças exclusivas para os dias de sol.
+            </p>
+
+            <div class="w-16 h-1 bg-mare-pink-500 mx-auto mt-5 rounded-full"></div>
+        </section>
+
+        <!-- Abas -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+
+            <button class="filter-tab-btn"
+                data-category="todos"
+                onclick="filterCategory('todos')">Todos</button>
+
+            <button class="filter-tab-btn"
+                data-category="cortininha"
+                onclick="filterCategory('cortininha')">Cortininha</button>
+
+            <button class="filter-tab-btn"
+                data-category="maios"
+                onclick="filterCategory('maios')">Maiôs</button>
+
+            <button class="filter-tab-btn"
+                data-category="saidas"
+                onclick="filterCategory('saidas')">Saídas de Praia</button>
+
+            <button class="filter-tab-btn"
+                data-category="acessorios"
+                onclick="filterCategory('acessorios')">Acessórios</button>
         </div>
 
-        <!-- Filter Tabs / Abas de Categorias -->
-        <div class="flex flex-wrap justify-center gap-3 mb-10 text-sm font-medium">
-            <button onclick="filterCategory('todos')" class="filter-tab-btn bg-mare-pink-600 text-white px-5 py-2.5 rounded-full shadow-sm transition-colors" data-category="todos">Todos</button>
-            <button onclick="filterCategory('cortininha')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="cortininha">Cortininha</button>
-            <button onclick="filterCategory('maios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="maios">Maiôs</button>
-            <button onclick="filterCategory('saidas')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="saidas">Saídas de Praia</button>
-            <button onclick="filterCategory('acessorios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="acessorios">Acessórios</button>
-        </div>
+        <!-- Produtos -->
+        <section id="product-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
+            <!-- BIQUÍNIS CORTININHA -->
+            <article class="product-card" data-category="cortininha">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
+                    alt="Moda praia feminina"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">BIQUÍNIS CORTININHA</p>
+                    <h2>Cortininha Solar</h2>
+                    <p class="descricao">Leve e versátil para o verão.</p>
+                    <p class="preco">R$ 129,90</p>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="cortininha">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85"
+                    alt="Look feminino de verão"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">BIQUÍNIS CORTININHA</p>
+                    <h2>Cortininha Rosa</h2>
+                    <p class="descricao">Delicadeza para os dias de praia.</p>
+                    <p class="preco">R$ 119,90</p>
+                </div>
+            </article>
+
+            <!-- MAIÔS -->
+            <article class="product-card" data-category="maios">
+                <img src="https://images.unsplash.com/photo-1570976447640-ac859083963f?auto=format&fit=crop&w=800&q=85"
+                    alt="Maiô feminino elegante"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">MAIÔS</p>
+                    <h2>Maiô Elegance</h2>
+                    <p class="descricao">Elegância e conforto em uma peça.</p>
+                    <p class="preco">R$ 159,90</p>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="maios">
+                <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=85"
+                    alt="Moda feminina sofisticada"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">MAIÔS</p>
+                    <h2>Maiô Oceano</h2>
+                    <p class="descricao">Um visual moderno e sofisticado.</p>
+                    <p class="preco">R$ 169,90</p>
+                </div>
+            </article>
+
+            <!-- SAÍDAS DE PRAIA -->
+            <article class="product-card" data-category="saidas">
+                <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=85"
+                    alt="Roupas femininas leves"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">SAÍDAS DE PRAIA</p>
+                    <h2>Saída Areia</h2>
+                    <p class="descricao">Leveza para os dias de sol.</p>
+                    <p class="preco">R$ 139,90</p>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="saidas">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85"
+                    alt="Moda feminina para o verão"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">SAÍDAS DE PRAIA</p>
+                    <h2>Saída Brisa</h2>
+                    <p class="descricao">Combina com diferentes biquínis.</p>
+                    <p class="preco">R$ 149,90</p>
+                </div>
+            </article>
+
+            <!-- ACESSÓRIOS -->
+            <article class="product-card" data-category="acessorios">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=85"
+                    alt="Óculos de sol"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">ACESSÓRIOS</p>
+                    <h2>Óculos Solar</h2>
+                    <p class="descricao">Um toque final para seu look.</p>
+                    <p class="preco">R$ 79,90</p>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="acessorios">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85"
+                    alt="Bolsa feminina"
+                    loading="lazy">
+                <div class="p-4">
+                    <p class="categoria">ACESSÓRIOS</p>
+                    <h2>Bolsa Summer</h2>
+                    <p class="descricao">Prática para levar à praia.</p>
+                    <p class="preco">R$ 89,90</p>
+                </div>
+            </article>
+
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-rose-100 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                
-                <div class="space-y-4">
-                    <a href="#" class="flex items-center gap-2">
-                        <span class="text-2xl text-mare-pink-600"><i class="fa-solid fa-water"></i></span>
-                        <span class="font-serif text-2xl font-bold text-gray-900">Maré Rosa</span>
-                    </a>
-                    <p class="text-gray-500 text-sm">
-                        Moda praia brasileira autêntica, unindo conforto, elegância e alta qualidade para seus momentos ao sol.
-                    </p>
-                    <div class="flex space-x-4 text-gray-500 pt-2">
-                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
-                        <a href="#" class="hover:text-mare-pink-600 text-lg" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
-                </div>
+    <!-- Rodapé -->
+    <footer class="bg-white border-t border-rose-100 mt-12 py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl font-bold text-mare-pink-600">
+                Maré Rosa
+            </h2>
 
-                <div>
-                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Categorias</h3>
-                    <ul class="space-y-2.5 text-sm text-gray-600">
-                        <li><a href="#" onclick="filterCategory('cortininha')" class="hover:text-mare-pink-600">Biquínis Cortininha</a></li>
-                        <li><a href="#" onclick="filterCategory('maios')" class="hover:text-mare-pink-600">Maiôs Exclusivos</a></li>
-                        <li><a href="#" onclick="filterCategory('saidas')" class="hover:text-mare-pink-600">Saídas de Praia</a></li>
-                        <li><a href="#" onclick="filterCategory('acessorios')" class="hover:text-mare-pink-600">Acessórios de Verão</a></li>
-                    </ul>
-                </div>
+            <p class="text-gray-500 text-sm mt-3">
+                Moda praia brasileira para seus melhores momentos ao sol.
+            </p>
 
-                <div>
-                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Atendimento</h3>
-                    <ul class="space-y-2.5 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-mare-pink-600">Fale Conosco</a></li>
-                        <li><a href="#" class="hover:text-mare-pink-600">Política de Trocas</a></li>
-                        <li><a href="#" class="hover:text-mare-pink-600">Guia de Tamanhos</a></li>
-                        <li><a href="#" class="hover:text-mare-pink-600">Rastrear Pedido</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Novidades</h3>
-                    <p class="text-sm text-gray-500 mb-3">Receba nossas ofertas e novidades de verão em primeira mão.</p>
-                    <form onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');" class="flex flex-col gap-2">
-                        <input type="email" placeholder="Seu e-mail aqui" required class="px-4 py-2.5 bg-sand border border-rose-200 rounded-lg text-sm focus:outline-none focus:border-mare-pink-500">
-                        <button type="submit" class="bg-mare-pink-600 hover:bg-mare-pink-800 text-white font-medium py-2.5 rounded-lg text-sm transition-colors">
-                            Inscrever-se
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="border-t border-rose-100 pt-6 text-center text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p>&copy; 2027 Maré Rosa. Todos os direitos reservados.</p>
-                <div class="flex items-center space-x-4 text-xl">
-                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
-                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fa-solid fa-pix" title="Pix"></i>
-                </div>
-            </div>
+            <p class="text-gray-400 text-xs mt-6">
+                © 2026 Maré Rosa. Todos os direitos reservados.
+            </p>
         </div>
     </footer>
 
-    <!-- JavaScript logic -->
+    <!-- Estilos dos produtos e botões -->
+    <style>
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px #0000000a;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px #00000012;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .categoria {
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #e11d48;
+            margin-bottom: 6px;
+        }
+
+        .product-card h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .descricao {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .preco {
+            font-weight: 700;
+            margin-top: 12px;
+        }
+
+        .filter-tab-btn {
+            background: white;
+            color: #4b5563;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid #e5e7eb;
+            transition: 0.2s;
+        }
+
+        .filter-tab-btn:hover {
+            background: #fff1f2;
+        }
+
+        .filter-tab-btn.active {
+            background: #e11d48;
+            color: white;
+            border-color: #e11d48;
+        }
+
+        .nav-btn {
+            padding-bottom: 5px;
+            color: #4b5563;
+        }
+
+        .nav-btn.active {
+            color: #e11d48;
+            font-weight: 700;
+            border-bottom: 2px solid #e11d48;
+        }
+    </style>
+
+    <!-- JavaScript -->
     <script>
         const categoryTexts = {
-            todos: { title: "Coleção Completa", desc: "Explore nossas peças exclusivas desenhadas para o verão dos seus sonhos." },
-            cortininha: { title: "Biquínis Cortininha", desc: "Os clássicos atemporais da praia brasileira com amarrações versáteis." },
-            maios: { title: "Maiôs Elegantes", desc: "Modelos sofísticados com caimento perfeito, conforto e proteção." },
-            saidas: { title: "Saídas de Praia", desc: "Leveza, transparência e elegância para transitar da areia ao restaurante." },
-            acessorios: { title: "Acessórios de Verão", desc: "Chapéus de palha, bolsas artesanais e os detalhes que completam o look." }
+            todos: {
+                title: "Coleção Completa",
+                desc: "Explore nossas peças exclusivas para os dias de sol."
+            },
+            cortininha: {
+                title: "Biquínis Cortininha",
+                desc: "Modelos versáteis e modernos para aproveitar o verão."
+            },
+            maios: {
+                title: "Maiôs Elegantes",
+                desc: "Modelos sofisticados que unem conforto e estilo."
+            },
+            saidas: {
+                title: "Saídas de Praia",
+                desc: "Leveza e elegância para acompanhar seus dias de sol."
+            },
+            acessorios: {
+                title: "Acessórios de Verão",
+                desc: "Complete seu visual com acessórios para a praia."
+            }
         };
 
-        // Filtro por Categoria (Alterna textos e estados das abas)
         function filterCategory(cat) {
-            document.getElementById('category-title').innerText = categoryTexts[cat].title;
-            document.getElementById('category-desc').innerText = categoryTexts[cat].desc;
+            document.getElementById("category-title").textContent =
+                categoryTexts[cat].title;
 
-            // Atualiza botões do cabeçalho
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if(btn.dataset.category === cat) {
-                    btn.classList.add('text-mare-pink-600', 'font-semibold', 'border-b-2', 'border-mare-pink-600');
-                    btn.classList.remove('text-gray-600');
-                } else {
-                    btn.classList.remove('text-mare-pink-600', 'font-semibold', 'border-b-2', 'border-mare-pink-600');
-                    btn.classList.add('text-gray-600');
-                }
+            document.getElementById("category-desc").textContent =
+                categoryTexts[cat].desc;
+
+            document.querySelectorAll(".product-card").forEach(card => {
+                const mostrar =
+                    cat === "todos" || card.dataset.category === cat;
+
+                card.classList.toggle("hidden", !mostrar);
             });
 
-            // Atualiza botões das abas principais
-            document.querySelectorAll('.filter-tab-btn').forEach(btn => {
-                if(btn.dataset.category === cat) {
-                    btn.className = 'filter-tab-btn bg-mare-pink-600 text-white px-5 py-2.5 rounded-full shadow-sm transition-colors';
-                } else {
-                    btn.className = 'filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors';
-                }
+            document.querySelectorAll(".filter-tab-btn").forEach(btn => {
+                btn.classList.toggle(
+                    "active",
+                    btn.dataset.category === cat
+                );
+            });
+
+            document.querySelectorAll(".nav-btn").forEach(btn => {
+                btn.classList.toggle(
+                    "active",
+                    btn.dataset.category === cat
+                );
             });
         }
 
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById("mobile-menu")
+                .classList.toggle("hidden");
         }
+
+        // Seleciona a categoria "Todos" ao abrir a página.
+        filterCategory("todos");
     </script>
+
 </body>
 </html>
