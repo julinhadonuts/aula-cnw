@@ -1,427 +1,602 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maré Rosa | Moda Praia</title>
-
+    <title>Amora Boutique | Moda Feminina & Elegância Exclusiva</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'mare-pink': {
-                            50: '#fff1f2',
-                            100: '#ffe4e6',
-                            300: '#fda4af',
-                            500: '#f43f5e',
-                            600: '#e11d48',
-                            800: '#9f1239'
+                        'amora': {
+                            50: '#fdf2f4',
+                            100: '#fbe5e9',
+                            200: '#f7ced7',
+                            300: '#f1a7b8',
+                            400: '#e77591',
+                            500: '#d9486f',
+                            600: '#c22f57',
+                            700: '#a32245',
+                            800: '#88203c',
+                            900: '#731f37'
                         },
-                        'sand': '#FAF6F0'
+                        'warm-sand': '#FAF6F0',
+                        'nude': '#F5EBE6'
                     },
                     fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Plus Jakarta Sans"', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+    <style>
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f8f1ee;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #f1a7b8;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+<body class="bg-warm-sand font-sans text-gray-800 antialiased leading-relaxed flex flex-col min-h-screen">
 
-<body class="bg-sand font-sans text-gray-800 min-h-screen flex flex-col">
-
-    <!-- Faixa superior -->
-    <div class="bg-mare-pink-600 text-white text-xs text-center py-2 px-3">
-        ✨ PARCELE EM ATÉ 6X SEM JUROS | FRETE GRÁTIS ACIMA DE R$ 299 ✨
+    <!-- Top Announcement Bar -->
+    <div class="bg-amora-800 text-white text-xs text-center py-2.5 px-4 font-medium tracking-wider uppercase">
+        ✨ NOVEIS LANÇAMENTOS | PARCELE EM ATÉ 6X SEM JUROS | FRETE GRÁTIS ACIMA DE R$ 299 ✨
     </div>
 
-    <!-- Cabeçalho -->
-    <header class="sticky top-0 z-40 bg-white/95 border-b border-rose-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4">
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-
-                <button onclick="toggleMobileMenu()"
-                    class="lg:hidden text-xl text-gray-700"
-                    aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars"></i>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-gray-700 hover:text-amora-600 focus:outline-none p-2" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
                 </button>
 
-                <a href="#" onclick="filterCategory('todos')"
-                    class="flex items-center gap-2">
-                    <i class="fa-solid fa-water text-3xl text-mare-pink-600"></i>
-                    <span class="font-serif text-2xl sm:text-3xl font-bold">
-                        Maré Rosa
-                    </span>
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <span class="text-3xl text-amora-600 font-serif font-bold italic">A</span>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 group-hover:text-amora-600 transition-colors">Amora <span class="font-light italic text-amora-600">Boutique</span></span>
                 </a>
 
-                <nav class="hidden lg:flex gap-6 text-sm">
-                    <button class="nav-btn" data-category="todos"
-                        onclick="filterCategory('todos')">TODOS</button>
-                    <button class="nav-btn" data-category="cortininha"
-                        onclick="filterCategory('cortininha')">CORTININHA</button>
-                    <button class="nav-btn" data-category="maios"
-                        onclick="filterCategory('maios')">MAIÔS</button>
-                    <button class="nav-btn" data-category="saidas"
-                        onclick="filterCategory('saidas')">SAÍDAS DE PRAIA</button>
-                    <button class="nav-btn" data-category="acessorios"
-                        onclick="filterCategory('acessorios')">ACESSÓRIOS</button>
+                <!-- Nav Links Desktop -->
+                <nav class="hidden lg:flex space-x-8 text-sm font-medium tracking-wide">
+                    <button onclick="filterCategory('todos')" class="nav-btn text-amora-600 font-semibold border-b-2 border-amora-600 pb-1 hover:text-amora-600 transition-colors" data-category="todos">TODOS</button>
+                    <button onclick="filterCategory('vestidos')" class="nav-btn text-gray-600 hover:text-amora-600 transition-colors pb-1" data-category="vestidos">VESTIDOS</button>
+                    <button onclick="filterCategory('blusas')" class="nav-btn text-gray-600 hover:text-amora-600 transition-colors pb-1" data-category="blusas">BLUSAS & TOPS</button>
+                    <button onclick="filterCategory('conjuntos')" class="nav-btn text-gray-600 hover:text-amora-600 transition-colors pb-1" data-category="conjuntos">CONJUNTOS</button>
+                    <button onclick="filterCategory('acessorios')" class="nav-btn text-gray-600 hover:text-amora-600 transition-colors pb-1" data-category="acessorios">ACESSÓRIOS</button>
                 </nav>
 
-                <div class="flex gap-4 text-lg">
-                    <button aria-label="Favoritos">
-                        <i class="fa-regular fa-heart"></i>
+                <!-- Action Icons -->
+                <div class="flex items-center space-x-5">
+                    <button class="text-gray-700 hover:text-amora-600 transition-colors p-1" title="Buscar" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
                     </button>
-                    <button aria-label="Carrinho"
-                        onclick="alert('Seu carrinho está vazio!')">
-                        <i class="fa-solid fa-bag-shopping"></i>
+                    <button id="wishlist-btn" class="text-gray-700 hover:text-amora-600 transition-colors p-1 relative" title="Favoritos" aria-label="Favoritos">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span id="wishlist-count" class="absolute -top-2 -right-2 bg-amora-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                    </button>
+                    <button id="cart-btn" onclick="openCart()" class="text-gray-700 hover:text-amora-600 transition-colors p-1 relative" title="Carrinho" aria-label="Carrinho">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-amora-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Menu para celular -->
-        <div id="mobile-menu"
-            class="hidden lg:hidden bg-white px-5 py-4 space-y-3">
-
-            <button class="block" onclick="filterCategory('todos'); toggleMobileMenu()">
-                Todos os produtos
-            </button>
-            <button class="block" onclick="filterCategory('cortininha'); toggleMobileMenu()">
-                Biquínis cortininha
-            </button>
-            <button class="block" onclick="filterCategory('maios'); toggleMobileMenu()">
-                Maiôs elegantes
-            </button>
-            <button class="block" onclick="filterCategory('saidas'); toggleMobileMenu()">
-                Saídas de praia
-            </button>
-            <button class="block" onclick="filterCategory('acessorios'); toggleMobileMenu()">
-                Acessórios
-            </button>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-rose-100 px-4 pt-2 pb-6 space-y-3">
+            <button onclick="filterCategory('todos'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-amora-600">Todos os Produtos</button>
+            <button onclick="filterCategory('vestidos'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-amora-600">Vestidos Elegantes</button>
+            <button onclick="filterCategory('blusas'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-amora-600">Blusas & Tops</button>
+            <button onclick="filterCategory('conjuntos'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-amora-600">Conjuntos Sofisticados</button>
+            <button onclick="filterCategory('acessorios'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700 hover:text-amora-600">Acessórios Exclusivos</button>
         </div>
     </header>
 
-    <!-- Conteúdo principal -->
-    <main id="produtos"
-        class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-14 flex-grow">
+    <!-- Hero Banner -->
+    <section class="relative bg-nude overflow-hidden py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="md:w-1/2 space-y-6 text-center md:text-left">
+                <span class="inline-block uppercase tracking-widest text-xs font-bold text-amora-700 bg-amora-100 px-4 py-1.5 rounded-full">
+                    Nova Coleção Outono/Inverno
+                </span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-tight">
+                    Elegância e Sofisticação em Cada Detalhe.
+                </h1>
+                <p class="text-gray-600 text-base sm:text-lg max-w-lg mx-auto md:mx-0">
+                    Peças exclusivas desenhadas para destacar a força, autenticidade e beleza da mulher contemporânea.
+                </p>
+                <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#produtos" class="bg-amora-600 hover:bg-amora-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                        Explorar Coleção
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative w-full flex justify-center">
+                <div class="relative w-72 h-96 sm:w-80 sm:h-[430px] lg:w-96 lg:h-[490px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Coleção Amora Boutique" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-5 left-5 text-white">
+                        <p class="font-serif text-2xl font-semibold">Essência '27</p>
+                        <p class="text-xs text-rose-200">Encontre o seu estilo autêntico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="text-center mb-10">
-            <p class="text-mare-pink-600 uppercase tracking-widest text-xs mb-3">
-                Sua melhor versão no verão
-            </p>
-
-            <h1 id="category-title"
-                class="font-serif text-4xl sm:text-5xl font-bold mb-4">
+    <!-- Main Content / Products Section -->
+    <main id="produtos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        
+        <!-- Category Title & Description -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 id="category-title" class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
                 Coleção Completa
-            </h1>
-
-            <p id="category-desc" class="text-gray-500">
-                Explore nossas peças exclusivas para os dias de sol.
+            </h2>
+            <p id="category-desc" class="text-gray-500 text-sm sm:text-base">
+                Explore nossas peças exclusivas pensadas para todas as ocasiões especiais.
             </p>
-
-            <div class="w-16 h-1 bg-mare-pink-500 mx-auto mt-5 rounded-full"></div>
-        </section>
-
-        <!-- Abas -->
-        <div class="flex flex-wrap justify-center gap-3 mb-10">
-
-            <button class="filter-tab-btn"
-                data-category="todos"
-                onclick="filterCategory('todos')">Todos</button>
-
-            <button class="filter-tab-btn"
-                data-category="cortininha"
-                onclick="filterCategory('cortininha')">Cortininha</button>
-
-            <button class="filter-tab-btn"
-                data-category="maios"
-                onclick="filterCategory('maios')">Maiôs</button>
-
-            <button class="filter-tab-btn"
-                data-category="saidas"
-                onclick="filterCategory('saidas')">Saídas de Praia</button>
-
-            <button class="filter-tab-btn"
-                data-category="acessorios"
-                onclick="filterCategory('acessorios')">Acessórios</button>
+            <div class="w-16 h-1 bg-amora-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <!-- Produtos -->
-        <section id="product-grid"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 text-xs sm:text-sm font-medium">
+            <button onclick="filterCategory('todos')" class="filter-tab-btn bg-amora-600 text-white px-5 py-2.5 rounded-full shadow-sm" data-category="todos">Todos</button>
+            <button onclick="filterCategory('vestidos')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200" data-category="vestidos">Vestidos</button>
+            <button onclick="filterCategory('blusas')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200" data-category="blusas">Blusas & Tops</button>
+            <button onclick="filterCategory('conjuntos')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200" data-category="conjuntos">Conjuntos</button>
+            <button onclick="filterCategory('acessorios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200" data-category="acessorios">Acessórios</button>
+        </div>
 
-            <!-- BIQUÍNIS CORTININHA -->
-            <article class="product-card" data-category="cortininha">
-                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
-                    alt="Moda praia feminina"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">BIQUÍNIS CORTININHA</p>
-                    <h2>Cortininha Solar</h2>
-                    <p class="descricao">Leve e versátil para o verão.</p>
-                    <p class="preco">R$ 129,90</p>
-                </div>
-            </article>
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Os produtos serão injetados via JavaScript -->
+        </div>
 
-            <article class="product-card" data-category="cortininha">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85"
-                    alt="Look feminino de verão"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">BIQUÍNIS CORTININHA</p>
-                    <h2>Cortininha Rosa</h2>
-                    <p class="descricao">Delicadeza para os dias de praia.</p>
-                    <p class="preco">R$ 119,90</p>
-                </div>
-            </article>
-
-            <!-- MAIÔS -->
-            <article class="product-card" data-category="maios">
-                <img src="https://images.unsplash.com/photo-1570976447640-ac859083963f?auto=format&fit=crop&w=800&q=85"
-                    alt="Maiô feminino elegante"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">MAIÔS</p>
-                    <h2>Maiô Elegance</h2>
-                    <p class="descricao">Elegância e conforto em uma peça.</p>
-                    <p class="preco">R$ 159,90</p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="maios">
-                <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=85"
-                    alt="Moda feminina sofisticada"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">MAIÔS</p>
-                    <h2>Maiô Oceano</h2>
-                    <p class="descricao">Um visual moderno e sofisticado.</p>
-                    <p class="preco">R$ 169,90</p>
-                </div>
-            </article>
-
-            <!-- SAÍDAS DE PRAIA -->
-            <article class="product-card" data-category="saidas">
-                <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=85"
-                    alt="Roupas femininas leves"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">SAÍDAS DE PRAIA</p>
-                    <h2>Saída Areia</h2>
-                    <p class="descricao">Leveza para os dias de sol.</p>
-                    <p class="preco">R$ 139,90</p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="saidas">
-                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85"
-                    alt="Moda feminina para o verão"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">SAÍDAS DE PRAIA</p>
-                    <h2>Saída Brisa</h2>
-                    <p class="descricao">Combina com diferentes biquínis.</p>
-                    <p class="preco">R$ 149,90</p>
-                </div>
-            </article>
-
-            <!-- ACESSÓRIOS -->
-            <article class="product-card" data-category="acessorios">
-                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=85"
-                    alt="Óculos de sol"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">ACESSÓRIOS</p>
-                    <h2>Óculos Solar</h2>
-                    <p class="descricao">Um toque final para seu look.</p>
-                    <p class="preco">R$ 79,90</p>
-                </div>
-            </article>
-
-            <article class="product-card" data-category="acessorios">
-                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85"
-                    alt="Bolsa feminina"
-                    loading="lazy">
-                <div class="p-4">
-                    <p class="categoria">ACESSÓRIOS</p>
-                    <h2>Bolsa Summer</h2>
-                    <p class="descricao">Prática para levar à praia.</p>
-                    <p class="preco">R$ 89,90</p>
-                </div>
-            </article>
-
-        </section>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="bg-white border-t border-rose-100 mt-12 py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="font-serif text-3xl font-bold text-mare-pink-600">
-                Maré Rosa
-            </h2>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-rose-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-2">
+                        <span class="text-2xl text-amora-600 font-serif font-bold italic">A</span>
+                        <span class="font-serif text-2xl font-bold text-gray-900">Amora Boutique</span>
+                    </a>
+                    <p class="text-gray-500 text-sm">
+                        Moda feminina exclusiva com tecidos nobres, caimento impecável e elegância para todos os momentos.
+                    </p>
+                    <div class="flex space-x-4 text-gray-500 pt-2">
+                        <a href="#" class="hover:text-amora-600 text-lg" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-amora-600 text-lg" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-amora-600 text-lg" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#" class="hover:text-amora-600 text-lg" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
 
-            <p class="text-gray-500 text-sm mt-3">
-                Moda praia brasileira para seus melhores momentos ao sol.
-            </p>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Categorias</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-600">
+                        <li><a href="#" onclick="filterCategory('vestidos')" class="hover:text-amora-600">Vestidos Elegantes</a></li>
+                        <li><a href="#" onclick="filterCategory('blusas')" class="hover:text-amora-600">Blusas & Tops</a></li>
+                        <li><a href="#" onclick="filterCategory('conjuntos')" class="hover:text-amora-600">Conjuntos Finos</a></li>
+                        <li><a href="#" onclick="filterCategory('acessorios')" class="hover:text-amora-600">Acessórios de Luxo</a></li>
+                    </ul>
+                </div>
 
-            <p class="text-gray-400 text-xs mt-6">
-                © 2026 Maré Rosa. Todos os direitos reservados.
-            </p>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Atendimento</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-amora-600">Fale Conosco</a></li>
+                        <li><a href="#" class="hover:text-amora-600">Política de Trocas</a></li>
+                        <li><a href="#" class="hover:text-amora-600">Guia de Tamanhos</a></li>
+                        <li><a href="#" class="hover:text-amora-600">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4 tracking-wider uppercase text-xs">Club Amora</h3>
+                    <p class="text-sm text-gray-500 mb-3">Inscreva-se para receber convites VIP e ofertas exclusivas.</p>
+                    <form onsubmit="event.preventDefault(); alert('Obrigado por se inscrever no Club Amora!');" class="flex flex-col gap-2">
+                        <input type="email" placeholder="Seu e-mail aqui" required class="px-4 py-2.5 bg-warm-sand border border-rose-200 rounded-lg text-sm focus:outline-none focus:border-amora-500">
+                        <button type="submit" class="bg-amora-600 hover:bg-amora-800 text-white font-medium py-2.5 rounded-lg text-sm transition-colors">
+                            Inscrever-se
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="border-t border-rose-100 pt-6 text-center text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2027 Amora Boutique. Todos os direitos reservados.</p>
+                <div class="flex items-center space-x-4 text-xl">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-solid fa-pix" title="Pix"></i>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Estilos dos produtos e botões -->
-    <style>
-        .product-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px #0000000a;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    <!-- Cart Drawer (Modal Lateral) -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto" onclick="closeCart()"></div>
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px #00000012;
-        }
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                
+                <!-- Drawer Header -->
+                <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+                    <h2 class="text-lg font-serif font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-amora-600"></i> Seu Carrinho
+                    </h2>
+                    <button onclick="closeCart()" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Fechar carrinho">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
 
-        .product-card img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
+                <!-- Items List -->
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                    <p class="text-gray-400 text-center py-8">Seu carrinho está vazio.</p>
+                </div>
 
-        .product-card:hover img {
-            transform: scale(1.04);
-        }
+                <!-- Drawer Footer -->
+                <div class="p-6 border-t border-gray-100 bg-warm-sand/50 space-y-4">
+                    <div class="flex justify-between text-base font-semibold text-gray-900">
+                        <span>Total</span>
+                        <span id="cart-total">R$ 0,00</span>
+                    </div>
+                    <button onclick="alert('Redirecionando para o checkout seguro!')" class="w-full bg-amora-600 hover:bg-amora-800 text-white font-medium py-3 rounded-xl shadow-md transition-all text-center">
+                        Finalizar Compra
+                    </button>
+                </div>
 
-        .categoria {
-            font-size: 11px;
-            letter-spacing: 1px;
-            color: #e11d48;
-            margin-bottom: 6px;
-        }
+            </div>
+        </div>
+    </div>
 
-        .product-card h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 19px;
-            font-weight: 600;
-        }
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-gray-900 text-white px-5 py-3 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-green-400"></i>
+        <span id="toast-msg">Item adicionado com sucesso!</span>
+    </div>
 
-        .descricao {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: 5px;
-        }
-
-        .preco {
-            font-weight: 700;
-            margin-top: 12px;
-        }
-
-        .filter-tab-btn {
-            background: white;
-            color: #4b5563;
-            padding: 10px 20px;
-            border-radius: 999px;
-            border: 1px solid #e5e7eb;
-            transition: 0.2s;
-        }
-
-        .filter-tab-btn:hover {
-            background: #fff1f2;
-        }
-
-        .filter-tab-btn.active {
-            background: #e11d48;
-            color: white;
-            border-color: #e11d48;
-        }
-
-        .nav-btn {
-            padding-bottom: 5px;
-            color: #4b5563;
-        }
-
-        .nav-btn.active {
-            color: #e11d48;
-            font-weight: 700;
-            border-bottom: 2px solid #e11d48;
-        }
-    </style>
-
-    <!-- JavaScript -->
+    <!-- JavaScript Logic -->
     <script>
-        const categoryTexts = {
-            todos: {
-                title: "Coleção Completa",
-                desc: "Explore nossas peças exclusivas para os dias de sol."
+        // Banco de Dados de Produtos
+        const products = [
+            // VESTIDOS
+            {
+                id: 1,
+                name: 'Vestido Midi Seda Rose Gold',
+                category: 'vestidos',
+                price: 349.90,
+                rating: 5.0,
+                image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=600',
+                badge: 'Mais Vendido'
             },
-            cortininha: {
-                title: "Biquínis Cortininha",
-                desc: "Modelos versáteis e modernos para aproveitar o verão."
+            {
+                id: 2,
+                name: 'Vestido Longo Florido Primavera',
+                category: 'vestidos',
+                price: 389.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=600',
+                badge: 'Novo'
             },
-            maios: {
-                title: "Maiôs Elegantes",
-                desc: "Modelos sofisticados que unem conforto e estilo."
+            {
+                id: 3,
+                name: 'Vestido Alfaiataria Nude Elegance',
+                category: 'vestidos',
+                price: 329.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600'
             },
-            saidas: {
-                title: "Saídas de Praia",
-                desc: "Leveza e elegância para acompanhar seus dias de sol."
+
+            // BLUSAS & TOPS
+            {
+                id: 4,
+                name: 'Blusa Crepe Botões Perolados',
+                category: 'blusas',
+                price: 189.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&q=80&w=600',
+                badge: 'Exclusivo'
             },
-            acessorios: {
-                title: "Acessórios de Verão",
-                desc: "Complete seu visual com acessórios para a praia."
+            {
+                id: 5,
+                name: 'Camisa Alfaiataria Linho Nude',
+                category: 'blusas',
+                price: 219.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 6,
+                name: 'Top Corset Estruturado Terracota',
+                category: 'blusas',
+                price: 169.90,
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600'
+            },
+
+            // CONJUNTOS
+            {
+                id: 7,
+                name: 'Conjunto Alfaiataria Blazer & Calça',
+                category: 'conjuntos',
+                price: 499.90,
+                rating: 5.0,
+                image: 'https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&q=80&w=600',
+                badge: 'Tendência'
+            },
+            {
+                id: 8,
+                name: 'Conjunto Tricot Cropped & Saia',
+                category: 'conjuntos',
+                price: 299.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 9,
+                name: 'Conjunto Linho Off-White',
+                category: 'conjuntos',
+                price: 429.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=600'
+            },
+
+            // ACESSÓRIOS
+            {
+                id: 10,
+                name: 'Bolsa Couro Legítimo Amora',
+                category: 'acessorios',
+                price: 279.90,
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 11,
+                name: 'Óculos de Sol Vintage Cat-Eye',
+                category: 'acessorios',
+                price: 149.90,
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 12,
+                name: 'Colar Dourado Elos Duplos',
+                category: 'acessorios',
+                price: 119.90,
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=600'
             }
+        ];
+
+        let cart = [];
+        let wishlist = [];
+
+        const categoryTexts = {
+            todos: { title: "Coleção Completa", desc: "Explore nossas peças exclusivas pensadas para todas as ocasiões especiais." },
+            vestidos: { title: "Vestidos Elegantes", desc: "Do casual ao de gala: caimento perfeito e tecidos sofisticados." },
+            blusas: { title: "Blusas & Tops", desc: "Versatilidade e charme para compor seus melhores looks cotidianos." },
+            conjuntos: { title: "Conjuntos Finos", desc: "Praticidade e elegância coordenada para presenças marcantes." },
+            acessorios: { title: "Acessórios de Luxo", desc: "Bolsas, óculos e joias que acrescentam o toque final perfeito." }
         };
 
+        // Renderizar Produtos
+        function renderProducts(category = 'todos') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = category === 'todos' 
+                ? products 
+                : products.filter(p => p.category === category);
+
+            filtered.forEach(product => {
+                const isWish = wishlist.includes(product.id);
+                const card = document.createElement('div');
+                card.className = 'product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-rose-100 flex flex-col justify-between group';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-[3/4] bg-rose-50">
+                        <img src="${product.image}" alt="${product.name}" class="product-img w-full h-full object-cover transition-transform duration-500">
+                        ${product.badge ? `<span class="absolute top-3 left-3 bg-amora-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">${product.badge}</span>` : ''}
+                        
+                        <button onclick="toggleWishlist(${product.id})" class="absolute top-3 right-3 bg-white/80 backdrop-blur-md p-2 rounded-full text-gray-700 hover:text-amora-600 transition-colors shadow-sm" aria-label="Favoritar">
+                            <i class="${isWish ? 'fa-solid text-amora-600' : 'fa-regular'} fa-heart"></i>
+                        </button>
+
+                        <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
+                            <button onclick="addToCart(${product.id})" class="bg-white hover:bg-amora-600 hover:text-white text-gray-900 font-medium text-xs py-2.5 px-4 rounded-full shadow-lg transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+                                <i class="fa-solid fa-star"></i>
+                                <span class="text-gray-600 font-medium ml-1">${product.rating}</span>
+                            </div>
+                            <h3 class="font-serif font-semibold text-gray-900 text-base group-hover:text-amora-600 transition-colors">${product.name}</h3>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
+                            <button onclick="addToCart(${product.id})" class="text-amora-600 hover:text-amora-800 font-medium text-xs flex items-center gap-1">
+                                Comprar <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtro por Categoria
         function filterCategory(cat) {
-            document.getElementById("category-title").textContent =
-                categoryTexts[cat].title;
+            document.getElementById('category-title').innerText = categoryTexts[cat].title;
+            document.getElementById('category-desc').innerText = categoryTexts[cat].desc;
 
-            document.getElementById("category-desc").textContent =
-                categoryTexts[cat].desc;
-
-            document.querySelectorAll(".product-card").forEach(card => {
-                const mostrar =
-                    cat === "todos" || card.dataset.category === cat;
-
-                card.classList.toggle("hidden", !mostrar);
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.category === cat) {
+                    btn.classList.add('text-amora-600', 'font-semibold', 'border-b-2', 'border-amora-600');
+                    btn.classList.remove('text-gray-600');
+                } else {
+                    btn.classList.remove('text-amora-600', 'font-semibold', 'border-b-2', 'border-amora-600');
+                    btn.classList.add('text-gray-600');
+                }
             });
 
-            document.querySelectorAll(".filter-tab-btn").forEach(btn => {
-                btn.classList.toggle(
-                    "active",
-                    btn.dataset.category === cat
-                );
+            document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+                if(btn.dataset.category === cat) {
+                    btn.className = 'filter-tab-btn bg-amora-600 text-white px-5 py-2.5 rounded-full shadow-sm';
+                } else {
+                    btn.className = 'filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200';
+                }
             });
 
-            document.querySelectorAll(".nav-btn").forEach(btn => {
-                btn.classList.toggle(
-                    "active",
-                    btn.dataset.category === cat
-                );
+            renderProducts(cat);
+        }
+
+        // Adicionar ao Carrinho
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const item = cart.find(i => i.id === productId);
+
+            if(item) {
+                item.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" adicionado ao carrinho!`);
+        }
+
+        // Atualizar UI do Carrinho
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+            countEl.innerText = totalItems;
+            totalEl.innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+
+            if(cart.length === 0) {
+                itemsContainer.innerHTML = `<p class="text-gray-400 text-center py-8">Seu carrinho está vazio.</p>`;
+                return;
+            }
+
+            itemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'flex items-center gap-4 border-b border-gray-100 pb-4';
+                el.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-medium text-sm text-gray-900">${item.name}</h4>
+                        <p class="text-xs text-gray-500 mt-1">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 border rounded-full flex items-center justify-center text-xs text-gray-600 hover:bg-rose-50">-</button>
+                            <span class="text-xs font-semibold">${item.quantity}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 border rounded-full flex items-center justify-center text-xs text-gray-600 hover:bg-rose-50">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 p-1" aria-label="Remover">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                `;
+                itemsContainer.appendChild(el);
             });
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(!item) return;
+            item.quantity += delta;
+            if(item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        // Drawer Controls
+        function openCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.add('opacity-0', 'pointer-events-none');
         }
 
         function toggleMobileMenu() {
-            document.getElementById("mobile-menu")
-                .classList.toggle("hidden");
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
 
-        // Seleciona a categoria "Todos" ao abrir a página.
-        filterCategory("todos");
-    </script>
+        // Favoritos
+        function toggleWishlist(productId) {
+            const idx = wishlist.indexOf(productId);
+            if(idx > -1) {
+                wishlist.splice(idx, 1);
+                showToast('Removido dos favoritos!');
+            } else {
+                wishlist.push(productId);
+                showToast('Adicionado aos favoritos!');
+            }
+            document.getElementById('wishlist-count').innerText = wishlist.length;
+            renderProducts();
+        }
 
+        // Toasts / Notificação
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts('todos');
+        });
+    </script>
 </body>
 </html>
