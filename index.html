@@ -133,9 +133,8 @@
                 <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] lg:w-96 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500 bg-rose-200 flex items-center justify-center">
                     <svg class="w-full h-full" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
                         <rect width="400" height="500" fill="#fce7f3"/>
-                        <circle cx="200" cy="180" r="100" fill="#fda4af" opacity="0.6"/>
+                        <circle cx="200" cy="250" r="120" fill="#fda4af" opacity="0.6"/>
                         <path d="M0 350 Q 100 300 200 350 T 400 350 L 400 500 L 0 500 Z" fill="#e11d48" opacity="0.8"/>
-                        <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="28" fill="#9f1239" font-weight="bold">Maré Rosa</text>
                     </svg>
                 </div>
             </div>
@@ -282,19 +281,15 @@
 
     <!-- JavaScript logic -->
     <script>
-        // Função para gerar SVG Data URI para garantir exibição sem bloqueios
-        function makeSvgImage(bgColor, accentColor, titleText, iconSvg) {
+        // Função para gerar SVG Data URI sem legendas/textos sobrepostos
+        function makeSvgImage(bgColor, accentColor, iconSvg) {
             const svg = `
             <svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
                 <rect width="400" height="500" fill="${bgColor}"/>
-                <circle cx="200" cy="200" r="120" fill="${accentColor}" opacity="0.25"/>
-                <g transform="translate(136, 120) scale(3.2)" fill="${accentColor}">
+                <circle cx="200" cy="250" r="130" fill="${accentColor}" opacity="0.3"/>
+                <g transform="translate(136, 180) scale(3.5)" fill="${accentColor}">
                     ${iconSvg}
                 </g>
-                <rect x="20" y="380" width="360" height="80" rx="12" fill="#ffffff" opacity="0.9"/>
-                <text x="200" y="425" dominant-baseline="middle" text-anchor="middle" font-family="'Playfair Display', serif" font-size="20" font-weight="bold" fill="#1f2937">
-                    ${titleText}
-                </text>
             </svg>`;
             return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
         }
@@ -309,7 +304,7 @@
             glasses: `<path d="M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm-8 0c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm16 0c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>`
         };
 
-        // Banco de Dados de Produtos com Imagens SVG Geradas Direta e Localmente
+        // Banco de Dados de Produtos sem as legendas sobrepostas na imagem
         const products = [
             // CORTININHA
             {
@@ -318,7 +313,7 @@
                 category: 'cortininha',
                 price: 189.90,
                 rating: 4.9,
-                image: makeSvgImage('#ffe4e6', '#f43f5e', 'Biquíni Rosa Coral', svgIcons.bikini),
+                image: makeSvgImage('#ffe4e6', '#f43f5e', svgIcons.bikini),
                 badge: 'Mais Vendido'
             },
             {
@@ -327,7 +322,7 @@
                 category: 'cortininha',
                 price: 199.90,
                 rating: 4.8,
-                image: makeSvgImage('#fef3c7', '#d97706', 'Biquíni Tropical', svgIcons.bikini),
+                image: makeSvgImage('#fef3c7', '#d97706', svgIcons.bikini),
                 badge: 'Novo'
             },
             {
@@ -336,7 +331,7 @@
                 category: 'cortininha',
                 price: 179.90,
                 rating: 4.7,
-                image: makeSvgImage('#f3e8ff', '#9333ea', 'Biquíni Texturizado', svgIcons.bikini)
+                image: makeSvgImage('#f3e8ff', '#9333ea', svgIcons.bikini)
             },
 
             // MAIÔS
@@ -346,7 +341,7 @@
                 category: 'maios',
                 price: 289.90,
                 rating: 5.0,
-                image: makeSvgImage('#e2e8f0', '#334155', 'Maiô Decote V', svgIcons.swimsuit),
+                image: makeSvgImage('#e2e8f0', '#334155', svgIcons.swimsuit),
                 badge: 'Exclusivo'
             },
             {
@@ -355,7 +350,7 @@
                 category: 'maios',
                 price: 269.90,
                 rating: 4.8,
-                image: makeSvgImage('#fee2e2', '#dc2626', 'Maiô Vermelho Sol', svgIcons.swimsuit)
+                image: makeSvgImage('#fee2e2', '#dc2626', svgIcons.swimsuit)
             },
             {
                 id: 6,
@@ -363,7 +358,7 @@
                 category: 'maios',
                 price: 299.90,
                 rating: 4.9,
-                image: makeSvgImage('#e0f2fe', '#0284c7', 'Maiô Azul Maré', svgIcons.swimsuit)
+                image: makeSvgImage('#e0f2fe', '#0284c7', svgIcons.swimsuit)
             },
 
             // SAÍDAS DE PRAIA
@@ -373,7 +368,7 @@
                 category: 'saidas',
                 price: 229.90,
                 rating: 4.9,
-                image: makeSvgImage('#fef3c7', '#b45309', 'Túnica de Linho', svgIcons.canga),
+                image: makeSvgImage('#fef3c7', '#b45309', svgIcons.canga),
                 badge: 'Tendência'
             },
             {
@@ -382,7 +377,7 @@
                 category: 'saidas',
                 price: 129.90,
                 rating: 4.6,
-                image: makeSvgImage('#fce7f3', '#e11d48', 'Canga Estampada Floral', svgIcons.canga)
+                image: makeSvgImage('#fce7f3', '#e11d48', svgIcons.canga)
             },
             {
                 id: 9,
@@ -390,7 +385,7 @@
                 category: 'saidas',
                 price: 249.90,
                 rating: 4.8,
-                image: makeSvgImage('#ccfbf1', '#0d9488', 'Kimono de Seda', svgIcons.canga)
+                image: makeSvgImage('#ccfbf1', '#0d9488', svgIcons.canga)
             },
 
             // ACESSÓRIOS
@@ -400,7 +395,7 @@
                 category: 'acessorios',
                 price: 149.90,
                 rating: 4.9,
-                image: makeSvgImage('#fef3c7', '#d97706', 'Chapéu de Palha Artesanal', svgIcons.hat)
+                image: makeSvgImage('#fef3c7', '#d97706', svgIcons.hat)
             },
             {
                 id: 11,
@@ -408,7 +403,7 @@
                 category: 'acessorios',
                 price: 189.90,
                 rating: 4.7,
-                image: makeSvgImage('#ffedd5', '#ea580c', 'Bolsa de Praia Artesanal', svgIcons.bag)
+                image: makeSvgImage('#ffedd5', '#ea580c', svgIcons.bag)
             },
             {
                 id: 12,
@@ -416,7 +411,7 @@
                 category: 'acessorios',
                 price: 139.90,
                 rating: 4.8,
-                image: makeSvgImage('#e0e7ff', '#4f46e5', 'Óculos Retro Oval', svgIcons.glasses)
+                image: makeSvgImage('#e0e7ff', '#4f46e5', svgIcons.glasses)
             }
         ];
 
