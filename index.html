@@ -35,21 +35,6 @@
             }
         }
     </script>
-    <style>
-        .product-card:hover .product-img {
-            transform: scale(1.05);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #fda4af;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 <body class="bg-sand font-sans text-gray-800 antialiased leading-relaxed flex flex-col min-h-screen">
 
@@ -110,43 +95,11 @@
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="relative bg-rose-50 overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-12 md:py-20 gap-8">
-            <div class="md:w-1/2 space-y-6 text-center md:text-left">
-                <span class="inline-block uppercase tracking-widest text-xs font-bold text-mare-pink-600 bg-rose-100 px-3 py-1 rounded-full">
-                    Coleção Verão 2027
-                </span>
-                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-tight">
-                    Sinta a brisa do mar com estilo e leveza.
-                </h1>
-                <p class="text-gray-600 text-base sm:text-lg max-w-lg mx-auto md:mx-0">
-                    Biquínis e moda praia pensados para realçar sua beleza natural com tecidos tecnológicos, proteção UV50+ e caimento perfeito.
-                </p>
-                <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#produtos" class="bg-mare-pink-600 hover:bg-mare-pink-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-                        Ver Lançamentos
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2 relative w-full flex justify-center">
-                <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] lg:w-96 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Coleção Maré Rosa Moda Praia" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <p class="font-serif text-xl">Sunsessions '27</p>
-                        <p class="text-xs text-rose-200">Encontre seu modelo ideal</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content / Products Section -->
+    <!-- Main Content Section -->
     <main id="produtos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
         
         <!-- Category Title & Description -->
-        <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="text-center max-w-2xl mx-auto mb-10">
             <h2 id="category-title" class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
                 Coleção Completa
             </h2>
@@ -156,18 +109,13 @@
             <div class="w-16 h-1 bg-mare-pink-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <!-- Filter Tabs Mobile/Quick -->
-        <div class="flex flex-wrap justify-center gap-2 mb-10 text-xs sm:text-sm font-medium">
-            <button onclick="filterCategory('todos')" class="filter-tab-btn bg-mare-pink-600 text-white px-4 py-2 rounded-full shadow-sm" data-category="todos">Todos</button>
-            <button onclick="filterCategory('cortininha')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="cortininha">Cortininha</button>
-            <button onclick="filterCategory('maios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="maios">Maiôs</button>
-            <button onclick="filterCategory('saidas')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="saidas">Saídas de Praia</button>
-            <button onclick="filterCategory('acessorios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200" data-category="acessorios">Acessórios</button>
-        </div>
-
-        <!-- Products Grid -->
-        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Os produtos serão injetados via JavaScript -->
+        <!-- Filter Tabs / Abas de Categorias -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10 text-sm font-medium">
+            <button onclick="filterCategory('todos')" class="filter-tab-btn bg-mare-pink-600 text-white px-5 py-2.5 rounded-full shadow-sm transition-colors" data-category="todos">Todos</button>
+            <button onclick="filterCategory('cortininha')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="cortininha">Cortininha</button>
+            <button onclick="filterCategory('maios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="maios">Maiôs</button>
+            <button onclick="filterCategory('saidas')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="saidas">Saídas de Praia</button>
+            <button onclick="filterCategory('acessorios')" class="filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors" data-category="acessorios">Acessórios</button>
         </div>
 
     </main>
@@ -237,168 +185,8 @@
         </div>
     </footer>
 
-    <!-- Cart Drawer (Side Modal) -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto" onclick="closeCart()"></div>
-
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                
-                <!-- Drawer Header -->
-                <div class="p-6 border-b border-gray-100 flex items-center justify-between">
-                    <h2 class="text-lg font-serif font-bold text-gray-900 flex items-center gap-2">
-                        <i class="fa-solid fa-bag-shopping text-mare-pink-600"></i> Seu Carrinho
-                    </h2>
-                    <button onclick="closeCart()" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Fechar carrinho">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-
-                <!-- Items List -->
-                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
-                    <p class="text-gray-400 text-center py-8">Seu carrinho está vazio.</p>
-                </div>
-
-                <!-- Drawer Footer -->
-                <div class="p-6 border-t border-gray-100 bg-sand/50 space-y-4">
-                    <div class="flex justify-between text-base font-semibold text-gray-900">
-                        <span>Total</span>
-                        <span id="cart-total">R$ 0,00</span>
-                    </div>
-                    <button onclick="alert('Redirecionando para o checkout seguro!')" class="w-full bg-mare-pink-600 hover:bg-mare-pink-800 text-white font-medium py-3 rounded-xl shadow-md transition-all text-center">
-                        Finalizar Compra
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-gray-900 text-white px-5 py-3 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
-        <i class="fa-solid fa-circle-check text-green-400"></i>
-        <span id="toast-msg">Item adicionado com sucesso!</span>
-    </div>
-
     <!-- JavaScript logic -->
     <script>
-        // Banco de Dados com os caminhos dos ficheiros de imagem locais enviadas
-        const products = [
-            // CORTININHA
-            {
-                id: 1,
-                name: 'Biquíni Cortininha Rosa Coral',
-                category: 'cortininha',
-                price: 189.90,
-                rating: 4.9,
-                image: 'https://images.unsplash.com/photo-1576185850227-1f72b7f8d483?auto=format&fit=crop&q=80&w=600',
-                badge: 'Mais Vendido'
-            },
-            {
-                id: 2,
-                name: 'Biquíni Cortininha Estampa Tropical',
-                category: 'cortininha',
-                price: 199.90,
-                rating: 4.8,
-                image: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=600',
-                badge: 'Novo'
-            },
-            {
-                id: 3,
-                name: 'Biquíni Cortininha Texturizado Nude',
-                category: 'cortininha',
-                price: 179.90,
-                rating: 4.7,
-                image: 'https://images.unsplash.com/photo-1582639510494-c80b5de9f148?auto=format&fit=crop&q=80&w=600'
-            },
-
-            // MAIÔS
-            {
-                id: 4,
-                name: 'Maiô Elegance Decote V Preto',
-                category: 'maios',
-                price: 289.90,
-                rating: 5.0,
-                image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=600',
-                badge: 'Exclusivo'
-            },
-            {
-                id: 5,
-                name: 'Maiô Engana-Mamãe Vermelho Sol',
-                category: 'maios',
-                price: 269.90,
-                rating: 4.8,
-                image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600'
-            },
-            {
-                id: 6,
-                name: 'Maiô Ombro Sólido Azul Maré',
-                category: 'maios',
-                price: 299.90,
-                rating: 4.9,
-                image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'
-            },
-
-            // SAÍDAS DE PRAIA
-            {
-                id: 7,
-                name: 'Saída de Praia Túnica de Linho',
-                category: 'saidas',
-                price: 229.90,
-                rating: 4.9,
-                image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600',
-                badge: 'Tendência'
-            },
-            {
-                id: 8,
-                name: 'Canga Estampada Floral Maré',
-                category: 'saidas',
-                price: 129.90,
-                rating: 4.6,
-                // Imagem 1 enviada: Canga de Praia
-                image: '30016494-Canga-De-Praia-Dohler--Viscose-Tropicos---2.jpg'
-            },
-            {
-                id: 9,
-                name: 'Kimono Curto de Seda Verão',
-                category: 'saidas',
-                price: 249.90,
-                rating: 4.8,
-                image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=600'
-            },
-
-            // ACESSÓRIOS
-            {
-                id: 10,
-                name: 'Chapéu de Palha Artesanal Maré',
-                category: 'acessorios',
-                price: 149.90,
-                rating: 4.9,
-                // Imagem 2 enviada: Chapéu de Palha
-                image: 'ac143-16-chapeu-palha-sintetica-praia-ilhota-sc-ilhasrio-02.webp'
-            },
-            {
-                id: 11,
-                name: 'Bolsa de Praia Artesanal Maré',
-                category: 'acessorios',
-                price: 189.90,
-                rating: 4.7,
-                // Imagem 3 enviada: Bolsa de Praia
-                image: 'D_NQ_NP_663419-MLA106752138738_022026-O.webp'
-            },
-            {
-                id: 12,
-                name: 'Óculos de Sol Retro Oval',
-                category: 'acessorios',
-                price: 139.90,
-                rating: 4.8,
-                image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&q=80&w=600'
-            }
-        ];
-
-        let cart = [];
-        let wishlist = [];
-
         const categoryTexts = {
             todos: { title: "Coleção Completa", desc: "Explore nossas peças exclusivas desenhadas para o verão dos seus sonhos." },
             cortininha: { title: "Biquínis Cortininha", desc: "Os clássicos atemporais da praia brasileira com amarrações versáteis." },
@@ -407,60 +195,12 @@
             acessorios: { title: "Acessórios de Verão", desc: "Chapéus de palha, bolsas artesanais e os detalhes que completam o look." }
         };
 
-        // Renderizar Produtos
-        function renderProducts(category = 'todos') {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = '';
-
-            const filtered = category === 'todos' 
-                ? products 
-                : products.filter(p => p.category === category);
-
-            filtered.forEach(product => {
-                const isWish = wishlist.includes(product.id);
-                const card = document.createElement('div');
-                card.className = 'product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-rose-100 flex flex-col justify-between group';
-                card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-[3/4] bg-rose-50">
-                        <img src="${product.image}" alt="${product.name}" class="product-img w-full h-full object-cover transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600';">
-                        ${product.badge ? `<span class="absolute top-3 left-3 bg-mare-pink-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">${product.badge}</span>` : ''}
-                        
-                        <button onclick="toggleWishlist(${product.id})" class="absolute top-3 right-3 bg-white/80 backdrop-blur-md p-2 rounded-full text-gray-700 hover:text-mare-pink-600 transition-colors shadow-sm" aria-label="Favoritar">
-                            <i class="${isWish ? 'fa-solid text-mare-pink-600' : 'fa-regular'} fa-heart"></i>
-                        </button>
-
-                        <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
-                            <button onclick="addToCart(${product.id})" class="bg-white hover:bg-mare-pink-600 hover:text-white text-gray-900 font-medium text-xs py-2.5 px-4 rounded-full shadow-lg transition-all flex items-center gap-2">
-                                <i class="fa-solid fa-cart-plus"></i> Adicionar
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="p-5 flex flex-col flex-grow justify-between">
-                        <div>
-                            <div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
-                                <i class="fa-solid fa-star"></i>
-                                <span class="text-gray-600 font-medium ml-1">${product.rating}</span>
-                            </div>
-                            <h3 class="font-serif font-semibold text-gray-900 text-base group-hover:text-mare-pink-600 transition-colors">${product.name}</h3>
-                        </div>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="text-lg font-bold text-gray-900">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
-                            <button onclick="addToCart(${product.id})" class="text-mare-pink-600 hover:text-mare-pink-800 font-medium text-xs flex items-center gap-1">
-                                Comprar <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Filtro por Categoria
+        // Filtro por Categoria (Alterna textos e estados das abas)
         function filterCategory(cat) {
             document.getElementById('category-title').innerText = categoryTexts[cat].title;
             document.getElementById('category-desc').innerText = categoryTexts[cat].desc;
 
+            // Atualiza botões do cabeçalho
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 if(btn.dataset.category === cat) {
                     btn.classList.add('text-mare-pink-600', 'font-semibold', 'border-b-2', 'border-mare-pink-600');
@@ -471,131 +211,20 @@
                 }
             });
 
+            // Atualiza botões das abas principais
             document.querySelectorAll('.filter-tab-btn').forEach(btn => {
                 if(btn.dataset.category === cat) {
-                    btn.className = 'filter-tab-btn bg-mare-pink-600 text-white px-4 py-2 rounded-full shadow-sm';
+                    btn.className = 'filter-tab-btn bg-mare-pink-600 text-white px-5 py-2.5 rounded-full shadow-sm transition-colors';
                 } else {
-                    btn.className = 'filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-4 py-2 rounded-full shadow-sm border border-gray-200';
+                    btn.className = 'filter-tab-btn bg-white text-gray-600 hover:bg-rose-50 px-5 py-2.5 rounded-full shadow-sm border border-gray-200 transition-colors';
                 }
             });
-
-            renderProducts(cat);
-        }
-
-        // Adicionar ao Carrinho
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const item = cart.find(i => i.id === productId);
-
-            if(item) {
-                item.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            updateCartUI();
-            showToast(`"${product.name}" adicionado ao carrinho!`);
-        }
-
-        // Atualizar UI do Carrinho
-        function updateCartUI() {
-            const countEl = document.getElementById('cart-count');
-            const itemsContainer = document.getElementById('cart-items');
-            const totalEl = document.getElementById('cart-total');
-
-            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-            const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-
-            countEl.innerText = totalItems;
-            totalEl.innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
-
-            if(cart.length === 0) {
-                itemsContainer.innerHTML = `<p class="text-gray-400 text-center py-8">Seu carrinho está vazio.</p>`;
-                return;
-            }
-
-            itemsContainer.innerHTML = '';
-            cart.forEach(item => {
-                const el = document.createElement('div');
-                el.className = 'flex items-center gap-4 border-b border-gray-100 pb-4';
-                el.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover rounded-lg">
-                    <div class="flex-1">
-                        <h4 class="font-medium text-sm text-gray-900">${item.name}</h4>
-                        <p class="text-xs text-gray-500 mt-1">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
-                        <div class="flex items-center gap-2 mt-2">
-                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 border rounded-full flex items-center justify-center text-xs text-gray-600 hover:bg-rose-50">-</button>
-                            <span class="text-xs font-semibold">${item.quantity}</span>
-                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 border rounded-full flex items-center justify-center text-xs text-gray-600 hover:bg-rose-50">+</button>
-                        </div>
-                    </div>
-                    <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 p-1" aria-label="Remover">
-                        <i class="fa-solid fa-trash-can text-sm"></i>
-                    </button>
-                `;
-                itemsContainer.appendChild(el);
-            });
-        }
-
-        function changeQty(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if(!item) return;
-            item.quantity += delta;
-            if(item.quantity <= 0) {
-                cart = cart.filter(i => i.id !== id);
-            }
-            updateCartUI();
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(i => i.id !== id);
-            updateCartUI();
-        }
-
-        // Drawer Controls
-        function openCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.remove('opacity-0', 'pointer-events-none');
-        }
-
-        function closeCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.add('opacity-0', 'pointer-events-none');
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
-
-        // Favoritos
-        function toggleWishlist(productId) {
-            const idx = wishlist.indexOf(productId);
-            if(idx > -1) {
-                wishlist.splice(idx, 1);
-                showToast('Removido dos favoritos!');
-            } else {
-                wishlist.push(productId);
-                showToast('Adicionado aos favoritos!');
-            }
-            document.getElementById('wishlist-count').innerText = wishlist.length;
-            renderProducts();
-        }
-
-        // Toasts / Notificação
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-msg').innerText = msg;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 2500);
-        }
-
-        // Inicializar
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts('todos');
-        });
     </script>
 </body>
 </html>
